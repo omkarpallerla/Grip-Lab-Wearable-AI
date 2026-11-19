@@ -87,15 +87,12 @@ A left/right grip divergence **> 10%** consistently precedes physical fatigue sy
 
 ```
 Grip-Lab-Wearable-AI/
-├── data/
-│   └── sample_sessions.csv
-├── notebooks/
-│   ├── 01_EDA_Grip_HRV_Correlation.ipynb
-│   ├── 02_XGBoost_Adjustment_Model.ipynb
-│   └── 03_Interactive_Dashboard.ipynb
+├── grip_lab_wearable.py          # simulation + XGBoost adjustment model
+├── notebooks/Grip_Lab_Analysis.ipynb
 ├── outputs/
-│   ├── readiness_dashboard.html
-│   └── feature_importance.png
+│   ├── readiness_scores.csv
+│   └── grip_lab_analysis.png
+├── analytics_dashboard.html
 ├── requirements.txt
 └── README.md
 ```
@@ -108,9 +105,16 @@ Grip-Lab-Wearable-AI/
 git clone https://github.com/omkarpallerla/Grip-Lab-Wearable-AI.git
 cd Grip-Lab-Wearable-AI
 pip install -r requirements.txt
-jupyter notebook notebooks/01_EDA_Grip_HRV_Correlation.ipynb
+python grip_lab_wearable.py   # or: jupyter notebook notebooks/Grip_Lab_Analysis.ipynb
 ```
 
 ---
 
-<div align="center"><sub>Omkar Pallerla · MS Business Analytics ASU · BI Engineer · Azure | GCP | Databricks Certified</sub></div>
+
+## 🧪 Data & Reproducibility
+
+Real athlete data is **not included**. `grip_lab_wearable.py` generates a seeded synthetic cohort (20 athletes x 98 days) with the same variables (HRV, sleep, grip force, left/right asymmetry) and trains the XGBoost adjustment layer on it (MAE ≈ 2.2 readiness points, R² ≈ 0.78 on the synthetic data). The 86% / 89% / 12-24 h figures above are from the original project analysis and are not reproduced by the synthetic script. The Oura Ring API ingestion shown in the table is a design, not a bundled connector.
+
+---
+
+<div align="center"><sub>Omkar Pallerla · MS Business Analytics, ASU · Business Intelligence Analyst · Google Cloud | Azure | Databricks | Snowflake Certified</sub></div>

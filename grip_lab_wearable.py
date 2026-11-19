@@ -5,6 +5,12 @@
 # =============================================================
 
 import pandas as pd
+import os
+os.makedirs("outputs", exist_ok=True)
+import os
+os.makedirs("outputs", exist_ok=True)
+import os
+os.makedirs("outputs", exist_ok=True)
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
